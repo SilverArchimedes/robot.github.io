@@ -50,6 +50,10 @@ const gitalk = new Gitalk({
 gitalk.render('gitalk-container');
 ```
 
+## 第三方登录
+
+https://www.ruanyifeng.com/blog/2019/04/github-oauth.html
+
 ## 开源
 
 https://github.com/doocs/doocs.github.io
