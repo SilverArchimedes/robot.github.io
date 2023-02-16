@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Robot</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <!-- <link rel="stylesheet" href="//unpkg.com/gitalk/dist/gitalk.css"> -->
+  <!-- https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/npm/gitalk/dist/gitalk.css -->
+  <link rel="stylesheet" href="./libs/gitalk.css" />
+  <!-- https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/npm/docsify-darklight-theme@latest/dist/style.min.css -->
+  <link rel="stylesheet" href="./libs/docsify-darklight-theme.css">
+  <!-- //cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js -->
+  <script src="./libs/docsify-copy-code.min.js"></script>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script>
+    window.$docsify = {
+      name: 'Robot Open Source',
+      repo: 'https://github.com/zeroone001/robotdemo.github.io',
+      loadSidebar: true,
+      loadNavbar: true,
+      auto2top: true,
+      mergeNavbar: true,
+      subMaxLevel: 2,
+      homepage: "README.md",
+      darklightTheme: {
+        defaultTheme: 'light',
+        siteFont: 'Source Sans Pro,Helvetica Neue,Arial,sans-serif',
+        codeFontFamily: 'Roboto Mono, Monaco, courier, monospace',
+        bodyFontSize: '15px',
+        dark: {
+          background: '#191919',
+          highlightColor: '#e96900',
+          codeBackgroundColor: '#202020',
+          codeTextColor: '#b4b4b4',
+        },
+        light: {
+          highlightColor: '#e96900',
+        }
+      },
+      search: {
+        noData: {
+          "/en/": "No results!",
+          "/": "找不到结果!"
+        },
+        // paths: "auto",
+        depth: 6,
+        placeholder: {
+          "/en/": "Search",
+          "/": "搜索"
+        }
+      },
+      plugins: [
+        function(hook, vm) {
+          hook.beforeEach(function(html) {
+            var url =
+              "https://github.com/zeroone001/robotdemo.github.io/tree/master/docs/" +
+              vm.route.file;
+            var editHtml = "[📝 GO DOCUMENT](" + url + ")\n";
+
+            return editHtml + html;
+          });
+
+          // hook.doneEach(function() {
+          //   var label, domObj, main, divEle, gitalk;
+          //   label = vm.route.path.split("/").pop();
+          //   domObj = Docsify.dom;
+          //   main = domObj.getNode("#main");
+
+          //   /**
+          //    * render gittalk
+          //    */
+          //   if (vm.route.path.includes("en")) {
+          //     gitalkConfig.language = "en";
+          //   }
+          //   Array.apply(
+          //     null,
+          //     document.querySelectorAll("div.gitalk-container")
+          //   ).forEach(function(ele) {
+          //     ele.remove();
+          //   });
+          //   divEle = domObj.create("div");
+          //   divEle.id = "gitalk-container-" + label;
+          //   divEle.className = "gitalk-container";
+          //   divEle.style = "width: " + main.clientWidth + "px; margin: 0 auto 20px;";
+          //   domObj.appendTo(domObj.find(".content"), divEle);
+          //   gitalk = new Gitalk(
+          //     Object.assign(gitalkConfig, { id: !label ? "home" : label })
+          //   );
+          //   gitalk.render("gitalk-container-" + label);
+          // });
+        },
+      ]
+    }
+  </script>
+
+  <!-- Docsify v4 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <!-- https://cdn.jsdelivr.net/npm/docsify@latest/lib/plugins/search.min.js -->
+  <script src="./libs/search.min.js"></script>
+  <!-- https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/npm/docsify-darklight-theme@latest/dist/index.min.js -->
+  <script src="./libs/docsify-darklight-theme@latest.js"></script>
+  <!-- https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/npm/docsify/lib/plugins/gitalk.min.js -->
+  <script src="./libs/gitalk.plugins.js"></script>
+  <!-- https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/npm/gitalk/dist/gitalk.min.js -->
+  <script src="./libs/gitalk.min.js"></script>
+  <script>
+    const gitalk = new Gitalk({
+      clientID: "a2bdae5457402030fb6b",
+      clientSecret: "c1c9ce6f3334a85f5456b602ca138dee038fd414",
+      repo: "robotdemo.github.io",
+      owner: "zeroone001",
+      admin: ["zeroone001"],
+      perPage: 20,
+      language: "zh-CN",
+      labels: ['Gitalk'],
+      // pagerDirection: "last", 页面方向，默认last
+      distractionFreeMode: true, // 无干扰模式
+      // title: "Welcome to join the Doocs Open Source organization",
+      id: 'home', 
+      proxy: "http://124.251.34.76/get_access_token",
+    });
+  </script>
+
+</body>
+</html>
